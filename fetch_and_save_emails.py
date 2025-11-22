@@ -28,7 +28,7 @@ def fetch_emails():
 
 def extract_email_data(messages):
   """Extract relevant data from messages"""
-  email_data = np.array([])
+  email_data = []
 
   for i, message in enumerate(messages, 1):
     try:
@@ -43,7 +43,7 @@ def extract_email_data(messages):
         'snippet':message.snippet
       }
 
-      email_data = np.append(email_data, email_dict)
+      email_data.append(email_dict)
 
       if i % 50 == 0:
         print(f"Processed {i}/{len(messages)} emails...")
