@@ -1,0 +1,42 @@
+# Create proper .gitignore
+cat > .gitignore << 'EOF'
+# Virtual environment (22K files!)
+venv/
+env/
+ENV/
+.venv/
+
+# Credentials (NEVER commit!)
+credentials.json
+client_secret.json
+token.json
+gmail_token.json
+token*.json
+
+# Data files
+*.csv
+emails_data.csv
+emails_analyzed.csv
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+EOF

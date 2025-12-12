@@ -1,4 +1,5 @@
 from simplegmail import Gmail
+from simplegmail.query import construct_query
 
 def main():
     print("Authenticating with Gmail...")
@@ -7,7 +8,11 @@ def main():
 
     print("Fetching recent emails...\n")
 
-    messages = gmail.get_messages()
+    query_parms = {
+        "newer_than": (1, "month"),
+    }
+
+    messages = gmail.get_messages(query =construct_query(query_parms))
 
     if not messages:
         print("No messages found.")
@@ -19,6 +24,8 @@ def main():
         print(f"{i}. Subject: {message.subject}")
         print(f"   From: {message.sender}")
         print(f"   Date: {message.date}")
+        print(f"   Preview: {message.snippet}")
+
         print("-" * 80)
 
 if __name__ == "__main__":
